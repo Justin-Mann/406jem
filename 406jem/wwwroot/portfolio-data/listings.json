@@ -1,6 +1,14 @@
 ﻿[
   {
     "date": "2021-09-06",
+    "project": "Portfolio Index",
+    "name": "Super Simple Protfolio Index",
+    "description": "Just a super simple Blazor Client Side that reads a static json file to keep a listing of the protfolio stuff I am actively or most recently put together... basically going to be the new index of 406jem.",
+    "appurl": null,
+    "githuburl": "https://github.com/Justin-Mann/ResumeBlazorClient"
+  },
+  {
+    "date": "2021-09-06",
     "project": "2021 Digitial Resume Demos",
     "name": "Resume Blazor Client Demo",
     "description": "I put together a blazor client that uses AAD to autheticate and make use of a Core 5 Service API backed by cosmos db.  I have other service APIs published and ready to take advantage of, but for the Blazor Demo I just did the bare minumum to prove public and scoped access to the Resume Service API using AAD.  I have plans to build out a more complete Angular client application and use B2C to support customer account creation and control.  The point of this was just to prove out a use case for single org aad using Blazor; like an internal business application for someone already using AAD...",

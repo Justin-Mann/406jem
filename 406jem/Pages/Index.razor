@@ -2,7 +2,12 @@
 
 @inject HttpClient Http
 
-<p class="alert alert-info">A listing of live urls and github repos for different implementations of a full stack digital resume project.  Mainly different client implementations because I'm not gonna pay the bill to host the backend services redundantly or maintain that effort. :) I did include an enterprise strategy for containerized microservices hosted in aks, but for practical reasons I am currently hosting all backend service APIs as app services.</p>
+<p class="alert alert-info">
+    A listing of live urls and github repos for different implementations of a full stack digital resume project.  
+    Mainly different client implementations because I'm not gonna pay the bill to host the backend services redundantly or maintain that effort. :) 
+    I did include an enterprise strategy for containerized microservices hosted in aks, but for practical reasons I am currently hosting all backend service 
+    APIs as app services.
+</p>
 
 @if (portfolioItems == null)
 {
@@ -29,8 +34,21 @@ else
                     <td>@pi.Project</td>
                     <td>@pi.Name</td>
                     <td>@pi.Description</td>
-                    <td><a title="@pi.AppUrl" href="@pi.AppUrl" target="_blank">link</a></td>
-                    <td><a title="@pi.GithubUrl" href="@pi.GithubUrl" target="_blank">link</a></td>
+                    <td>
+                        @if(@pi.AppUrl != null)
+                        {
+                            <a title="@pi.AppUrl" href="@pi.AppUrl" target="_blank">link</a>
+                        } else {
+                            <span>-</span>
+                        }
+                    </td>
+                    <td>
+                        @if (@pi.GithubUrl != null) {
+                            <a title="@pi.GithubUrl" href="@pi.GithubUrl" target="_blank">link</a>
+                        } else {
+                            <span>-</span>
+                        }
+                    </td>
                 </tr>
             }
         </tbody>

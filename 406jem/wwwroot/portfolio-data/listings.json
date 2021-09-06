@@ -1,0 +1,10 @@
+﻿[
+  {
+    "date": "2021-09-06",
+    "project": "2021 Digitial Resume Demos",
+    "name": "Resume Blazor Client Demo",
+    "description": "I put together a blazor client that uses AAD to autheticate and make use of a Core 5 Service API backed by cosmos db.  I have other service APIs published and ready to take advantage of, but for the Blazor Demo I just did the bare minumum to prove public and scoped access to the Resume Service API using AAD.  I have plans to build out a more complete Angular client application and use B2C to support customer account creation and control.  The point of this was just to prove out a use case for single org aad using Blazor; like an internal business application for someone already using AAD...",
+    "appurl": "https://resumeblazorclient20210906120150.azurewebsites.net/",
+    "githuburl": "https://github.com/Justin-Mann/ResumeBlazorClient"
+  }
+]

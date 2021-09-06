@@ -1,0 +1,62 @@
+﻿@page "/"
+
+@inject HttpClient Http
+
+<p class="alert alert-info">A listing of live urls and github repos for different implementations of a full stack digital resume project.  Mainly different client implementations because I'm not gonna pay the bill to host the backend services redundantly or maintain that effort. :) I did include an enterprise strategy for containerized microservices hosted in aks, but for practical reasons I am currently hosting all backend service APIs as app services.</p>
+
+@if (portfolioItems == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Project</th>
+                <th>Name</th>
+                <th>Summary</th>
+                <th>App</th>
+                <th>GitHub</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pi in portfolioItems)
+            {
+                <tr>
+                    <td>@pi.Date.ToShortDateString()</td>
+                    <td>@pi.Project</td>
+                    <td>@pi.Name</td>
+                    <td>@pi.Description</td>
+                    <td><a title="@pi.AppUrl" href="@pi.AppUrl" target="_blank">link</a></td>
+                    <td><a title="@pi.GithubUrl" href="@pi.GithubUrl" target="_blank">link</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private PortfolioItem[] portfolioItems;
+
+    protected override async Task OnInitializedAsync()
+    {
+        portfolioItems = await Http.GetFromJsonAsync<PortfolioItem[]>("portfolio-data/listings.json");
+    }
+
+    public class PortfolioItem
+    {
+        public DateTime Date { get; set; }
+
+        public string Project { get; set; }
+
+        public string Name { get; set; }
+
+        public string Description { get; set; }
+
+        public string AppUrl { get; set; }
+
+        public string GithubUrl { get; set; }
+    }
+}
